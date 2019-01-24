@@ -19,7 +19,7 @@
  ## Configure the build.
  CFLAGS="$CFLAGS -I/opt/local/include -Wno-error" CPPFLAGS="$CPPFLAGS -I/opt/local/include -Wno-error" LDFLAGS="$LDFLAGS -L/opt/local/lib" ../configure --prefix="$PSPDEV" --target="psp" --enable-install-libbfd
 
- ## Compile and install. ( -r is required for building under osx )
+ # Compile and install. ( -r is required for building under osx )
  make -j $(num_cpus) clean
  make -r -j $(num_cpus)
  make -j $(num_cpus) install

@@ -1,25 +1,20 @@
 #!/bin/bash
-# newlib-1.20.0.sh by Naomi Peori (naomi@peori.ca)
 
  ## Exit on errors
  set -e
 
  ## Download the source code if it does not already exist.
- download_and_extract https://sourceware.org/pub/newlib/newlib-1.20.0.tar.gz newlib-1.20.0
+ clone_git_repo github.com DaveeFTW libk psp
 
  ## Enter the source directory and patch the source code.
- cd newlib-1.20.0
- patch -p1 < ../../patches/newlib-1.20.0-PSP.patch
+ cd libk
 
  ## Create and enter the build directory.
  mkdir build-psp
  cd build-psp
 
  ## Configure the build.
- ../configure --prefix="$PSPDEV" --target="psp" \
-     --enable-newlib-iconv \
-     --enable-newlib-multithread \
-     --enable-newlib-mb \
+ cmake -DCMAKE_TOOLCHAIN_FILE=../../cmake/psp-toolchain.cmake -DCMAKE_INSTALL_PREFIX="$PSPDEV"/psp ..
 
  ## Compile and install.
  make -j $(num_cpus) clean

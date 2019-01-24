@@ -73,7 +73,6 @@ check_header    ncurses         ncurses.h ncurses/ncurses.h
 check_header    zlib            zlib.h
 
 check_program   git
-check_program   svn
 check_program   wget
 check_program   patch
 check_program   tar
@@ -86,15 +85,12 @@ check_program   make
 check_program   gcc
 check_program   g++
 
-check_program   sdl-config
 # check_program   freetype-config
 
 check_program   bison
 check_program   flex
-check_program   tclsh
 
 check_program   makeinfo
-check_program   doxygen
 
 # Sometimes things will be a little different on Mac OS X...
 if [ "$(uname)" == "Darwin" ]; then
