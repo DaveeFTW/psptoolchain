@@ -21,3 +21,5 @@
  make -j $(num_cpus) install
  make -j $(num_cpus) clean
 
+! mkdir "$PSPDEV"/share
+cp ../../../cmake/psp-toolchain.cmake "$PSPDEV"/share
